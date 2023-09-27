@@ -1,39 +1,31 @@
-import math
+from math import pi
+
+def radianes_angulos(radianes):
+    grados = (radianes * 180) / pi
+    return grados
+
+def angulos_radianes(grados):
+    radianes = (grados * pi) / 180
+    return radianes
 
 control = True
 
-sino = ["si", "no"]
-while True == True:
-    pregunta = input("Deseas convertir angulos a radianes? Responde con un si o no: ").lower()
+sino = [1, 2]
+while control == True:
     try:
-        si_o_no = str(pregunta)
-        if isinstance(si_o_no, str) == True and pregunta in sino:
-            control == False
-            if pregunta == "si":
-                angulo_radian = input("Ingresa el valor del angulo en grados para convertir a radianes: ")
-
-                angulo_radian = int(angulo_radian)
-                conversion = math.pi / 4
-                radianes1 = math.radians(conversion)
-
-                print(angulo_radian, "grados en radianes son: ", conversion)
-                break
-            elif pregunta == "no":
-                radian_angulo = input("Ingresa el valor en radianes para convertirlo en grados: ")
-
-                radian_angulo = float(radian_angulo)
-                division = math.pi / 4
-                grados = math.degrees(radian_angulo)
-
-                print(radian_angulo, "radianes en grados son: ", grados)
-                break
-        else:
-            print("Utiliza caracteres validos..")
-            continue
-    except Exception:
-        print("Utiliza caracteres validos.")
+        pregunta = int(input("Escribe 1 si quieres transformar grados a radianes\nEscribe 2 si quieres transformar radianes a grados.\nIntroduzca un numero segun lo que quiers hacer: "))
+        valor = float(input("Introduzca el valor que quiere transformar: "))
+    except:
+        print("Entrada no válida. Por favor, introduzca un número válido.")
         continue
 
-continuar = input("Deseas terminar el programa?: ")
-if continuar == "si":
-    print("Okay! hasta la proxima")
+    if pregunta not in sino:
+        print("Introduzca una opción válida (1 o 2)")
+        control == False
+    else:
+        if pregunta == 1:
+            resultado = angulos_radianes(valor)
+            print(valor, "grados son equivalentes a", resultado, "radianes")
+        else:
+            resultado = radianes_angulos(valor)
+            print(valor, "radianes son equivalentes a", resultado, "grados")
