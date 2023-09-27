@@ -11,7 +11,7 @@ def angulos_radianes(grados):
 control = True
 sino = [1, 2]
 
-while control =True:
+while control = True:
     try:
         pregunta = int(input(
             "Escribe 1 si quieres transformar grados a radianes\nEscribe 2 si quieres transformar radianes a grados.\nIntroduzca el numero correspondiente segun lo que quieres hacer: "))
